@@ -1,0 +1,677 @@
+@import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+
+$loading:150px;
+
+img {
+	width: 100%;
+	vertical-align: middle;
+}
+
+input,label{
+	padding: 0;
+	margin: 0;
+	border: 0; 
+}
+
+body{
+	color: white;
+	font-family: Arial,'微軟正黑體', serif;
+	margin: 0;
+	padding: 0;
+
+	.loading{ 
+        z-index: 999;
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(15, 33, 82);
+        >span{
+            width: $loading;
+            height: $loading;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%,-50%);
+                    transform: translate(-50%,-50%);
+            //background: url('../img/loading.gif')center center no-repeat;
+            //background-size: 80px;
+            //background-color: white;
+            border-radius: 99em;
+                
+            >span{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-animation: loading 0.5s linear infinite;
+                        animation: loading 0.5s linear infinite;
+                
+                >span{
+                    position: relative;
+                    display: block;
+                    overflow: hidden;
+                    width: $loading/2;
+                    height: $loading/2;
+                    >span{
+                        position: absolute;
+                        -webkit-box-sizing: border-box;
+                                box-sizing: border-box; 
+                        width: $loading;
+                        height: $loading;
+                        border: 5px solid #c3fffe;
+						border-radius: 99em;
+                    }
+                }
+            }
+        }
+        
+        @-webkit-keyframes loading {
+            from {-webkit-transform: rotate(0);transform: rotate(0)}
+            to {-webkit-transform: rotate(360deg);transform: rotate(360deg)}
+        }
+        
+        @keyframes loading {
+            from {-webkit-transform: rotate(0);transform: rotate(0)}
+            to {-webkit-transform: rotate(360deg);transform: rotate(360deg)}
+        }
+    }//loading
+
+	.pc{
+		display: none;
+		z-index: 1000;
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		margin: 0 auto;
+		img{
+			position: relative;
+			width: 1920px;
+			margin: 0 auto;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	.wrap{
+		//max-width: 640px;
+		margin: 0 auto;
+		header{
+			position: fixed;
+			display: none;
+			z-index: 999;
+			width: 100%;
+			.logo{
+				width: 170/640*100%;
+			}
+			.ham{
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 100/640*100%;
+				//background-color: aqua;
+			}
+			&.blur{
+				filter: blur(5px)
+			}
+		}//header
+		.menu{
+			z-index: 999;
+			display: none;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100vh;
+			min-height: 920/640*100vw;
+			background: url('../img/game_rule_bg.png')center top no-repeat;
+			background-size: 100%;
+			background-color: rgba($color: #000, $alpha: 0.5);
+
+			.list{
+				position: relative;
+				width: 488/640*100%;
+				margin: 10% auto 0;
+
+				.menu_close{
+					position: absolute;
+					top: 0;
+					right: 0;
+					width: 18%;
+					height: 7%;
+					//background-color: bisque;
+				}
+				ul{
+					position: absolute;
+					width: 370/488*100%;
+					top: 9%;
+					left: 0;
+					right: 0;
+					margin: 0 auto;
+				}
+				.flip{
+					position: absolute;
+					width: 30%;
+					bottom: 2%;
+					right: 7%;
+				}
+			}
+		}//menu
+
+		.content{
+			overflow: hidden;
+			position: relative;
+			width: 100%;
+			background: url('../img/bg.png')center top no-repeat;
+			background-size: 100%;
+			background-color: black;
+			&.blur{
+				filter: blur(5px);
+			}
+			
+			section{
+				position: relative;
+				display: none;
+				width: 100%;
+				height: 100vh;
+				min-height: 920/640*100vw;
+			}
+
+			.intro{
+				display: none;
+				// background: url('../img/intro_bg.png') center top no-repeat;
+				// background-size: 100%;			
+
+				.line,.nex,.title,.kv,.play,.slogan {
+					position: absolute;
+					left: 50%;
+					transform: translateX(-50%);
+					>*{
+						transform-style: preserve-3d;
+						transition: all 1s ease-out;
+					}
+					
+				}
+				.line{
+					width: 100%;
+					margin-top: 88%;
+					.pathL, .pathR {
+						position: absolute;
+						top: 0;
+						width: 0%;
+						height: 100%;
+						overflow:hidden;
+						transition: width 1s ease-in;
+
+						img{
+							position: absolute;
+							width: 100%;
+						}
+						&.act{
+							width: 50%;
+						}
+					}
+					.pathR{
+						right: 0;
+						img{
+							right: 0;
+						}
+					}
+				}
+				.nex{
+					width: 338/640*100%;
+					margin-top: 13.5%;
+					img{
+						transform: rotate3d(0,1,0,-270deg);
+						&.act{
+							transform: rotate3d(0,1,0,0deg);
+						}
+					}
+					
+				}
+				.title{
+					margin-top: 215/640*100%;
+					width: 277/640*100%;
+					img{
+						transform: rotate3d(0,1,0,-270deg);
+						&.act{
+							transition-delay: 0.3s;
+							transform: rotate3d(0,1,0,0deg);
+						}
+					}
+					
+				}
+				.kv{
+					width: 100%;
+					margin-top: 55%;
+				}
+				.slogan{
+					width: 546/640*100%;
+					margin-top: 99%;
+					li{
+						transform: rotate3d(0,1,0,-270deg);
+						&:nth-child(1){
+							transition-delay: 0.5s;
+						}
+						&:nth-child(2){
+							transition-delay: 0.6s;
+						}
+						&:nth-child(3){
+							transition-delay: 0.7s;
+						}
+						&.act{
+							transform: rotate3d(0,1,0,0deg);
+						}
+					}
+				}
+				.play{
+					cursor: pointer;
+					margin-top: 125%;
+					img{
+						transition: all 0.5s ease-in;
+						opacity: 0;
+						transform: scale(5);
+						&.act{
+							transition-delay: 1s;
+							opacity: 1;
+							transform: scale(1);
+						}
+					}
+				}
+			}
+
+			.game{
+				position: relative;
+				//perspective:1000;transform-style:preserve-3d;
+
+				.nex{
+					position: absolute;
+					width: 402/640*100%;
+					margin-top: 55%;
+					left: 50%;
+					transform: translateX(-50%);
+				}
+				.playground{
+					position: relative;
+					width: 100%;
+					min-height: 100vh;
+					.card{
+						position: absolute;
+						cursor: pointer;
+						perspective:1000;transform-style:preserve-3d;
+						width: 120/640*100%;
+						height: 80px;
+						transition: all 1s ease;
+						transform: rotate3d(0,1,0,180deg);
+						// margin-right: 10px;
+						// margin-bottom: 10px;
+						opacity: 0;
+		
+						&:nth-child(1){
+							&.delay{
+								transition: opacity 0.5s ease;
+								transition-delay: 0;
+								opacity: 1;	
+							}
+							margin-top: 110/640*100%;
+							margin-left: 50/640*100%;
+						}
+						&:nth-child(2){
+							&.delay{
+								transition: opacity 0.5s ease;
+								transition-delay: 0.1s;
+								opacity: 1;
+							}
+							margin-top: 110/640*100%;
+							margin-left: 260/640*100%;
+						}
+						&:nth-child(3){
+							&.delay{
+								transition: opacity 0.5s ease;
+								transition-delay: 0.2s;
+								opacity: 1;
+							}
+							margin-top: 110/640*100%;
+							margin-left: 470/640*100%;
+						}
+						&:nth-child(4){
+							&.delay{
+								transition: opacity 0.5s ease;
+								transition-delay: 0.3s;
+								opacity: 1;
+							}
+							margin-top: 385/640*100%;
+							margin-left: 470/640*100%;
+						}
+						&:nth-child(5){
+							&.delay{
+								transition: opacity 0.5s ease;
+								transition-delay: 0.4s;
+								opacity: 1;
+							}
+							margin-top: 655/640*100%;
+							margin-left: 470/640*100%;
+						}
+						&:nth-child(6){
+							&.delay{
+								transition: opacity 0.5s ease;
+								transition-delay: 0.5s;
+								opacity: 1;
+							}
+							margin-top: 655/640*100%;
+							margin-left: 260/640*100%;
+						}
+						&:nth-child(7){
+							&.delay{
+								transition: opacity 0.5s ease;
+								transition-delay: 0.6s;
+								opacity: 1;
+							}
+							margin-top: 655/640*100%;
+							margin-left: 50/640*100%;
+						}
+						&:nth-child(8){
+							&.delay{
+								transition: opacity 0.5s ease;
+								transition-delay: 0.7s;
+								opacity: 1;
+							}
+							margin-top: 385/640*100%;
+							margin-left: 50/640*100%;
+						}
+						
+		
+						>div{
+							width: 100%;
+							height: 100%;
+							line-height: 80px;
+							text-align: center;
+							backface-visibility:hidden;
+							position: relative;
+							z-index: 1;
+							//background-color:#aaa;
+						}
+						&.pick{
+							transform: rotate3d(0,1,0,0deg)
+						}
+						&:after{
+							z-index: -1;
+							display: block;
+							content: '';
+							position: absolute;
+							width: 100%;
+							height: 100%;
+							top: 0;
+							//background-color: aqua;
+							background: url('../img/game_back.png')center center no-repeat;
+							background-size: 100%;
+						}
+					}//card
+				}//playground
+		
+				.go{			
+					z-index: 10;
+					display: none;
+					//content: 'GO!';
+					font-size: 30vw;
+					position: absolute;
+					top: 0;
+					margin-top: 60%;
+					left: 50%;
+					text-align: center;
+					font-weight: bold;
+					color: rgb(253, 255, 136);
+					transform: translateX(-40%) translateZ(100px);
+					text-shadow: #fffb7b 0px 0px 40px;
+					&.act{
+						display: block;
+						animation: act 2s ease alternate;
+						opacity: 0;
+					}
+					
+					@keyframes act {
+						0%{opacity: 1}
+						50%{opacity:1}
+						100%{opacity: 0;}
+					}
+				}
+				.timeIcon{
+					z-index: 5;
+					position: absolute;
+					width: 29/640*100%;
+					top: 0;
+					margin-top: 87%;
+					left: 40%;
+				}
+				.time{
+					z-index: 5;
+					display: block;
+					position: absolute;
+					top: 0;
+					margin-top: 87%;
+					left: 47%;
+					font-size: 5vw;
+				}
+				.complete{
+					z-index: 10;
+					display: none;
+					color: rgb(253, 255, 136);;
+					font-weight: bold;
+					position: absolute;
+					top: 0;
+					margin-top: 102%;
+					left: 50%;
+					transform: translate3d(-45%,-50%,99px);
+					font-size: 15vw;
+					text-shadow: #fffb7b 0px 0px 40px;
+				}
+			}//game
+
+			.result{
+				.flip{
+					position: absolute;
+					width: 50%;
+					top: 0;
+					margin-top: 10%; 
+					right: 2%;
+				}
+				.time{
+					position: absolute;
+					font-size: 10vw;
+					top: 0;
+					margin-top: 93%;
+					left: 43%;
+					text-shadow: white 0 0 20px;
+				}
+				ul{
+					margin-top: 7%;
+					width: 100%;
+					li{
+						display: inline-block;
+						width: 244/640*100%;
+						margin-left: 3%;
+						margin-bottom: 2%;
+						&:nth-child(2n-1){
+							margin-left: 10%;
+						}
+					}
+				}
+			}
+
+			.form{
+				background: url('../img/form_bg.png')center top no-repeat;
+				background-size: 100%;
+				position: relative;
+
+				ul{
+					padding-top: 32%;
+
+					li{
+						padding: 1% 0;
+						margin-left: 34%;
+						margin-bottom: 7%;
+						height: 5.7vw;
+						&:last-child{
+							margin-bottom: 0;
+						}
+
+						input{
+							background-color: transparent;
+							color: white;
+							width: 80%;
+							font-size: 5vw;
+							// @media screen and (min-width:641px) {
+							// 	font-size:32px;
+							// }
+						}
+					}
+				}
+				#inn{
+					display: none;
+
+					&:checked + label::after{	
+						content: '';
+						width: 2vw;
+						height: 2vw;
+						//max-width: 12px;
+						//max-height: 12px;
+						border-radius: 99em;
+						background-color: white;
+					}
+				}
+
+				label{
+					position: relative;
+					margin-top: 5%;
+					margin-bottom: 3%;
+					display: block;
+					width: 100%;
+					box-sizing: border-box;
+					padding-left: 5%;
+					//background-color: rgba($color: #000000, $alpha: 0.5);
+					height: 6vw;
+					max-height: 38px;
+					line-height: 6vw;
+					text-align: center;
+					font-size: 3vw;
+					&:before{
+						content: '';
+						position: absolute;
+						left: 12.5%;
+						top: 50%;
+						transform: translateY(-52%);
+						width: 4.5vw;
+						height: 4.5vw;
+						border-radius: 99em;
+						border: 1px solid white;
+					}
+					&:after{
+						content: '';
+						position: absolute;
+						left: 14%;
+						top: 50%;
+						transform: translateY(-60%);
+					}
+				}
+				
+				.go_rule{
+					display: inline-block;
+					width: 247/640*100%;
+					margin-left: 10%;
+				}
+				#SUD_Bu_Submit{
+					display: inline-block;
+					width: 247/640*100%;
+					margin-left: 2%;
+				}
+			}
+		}//content
+
+		.tips{
+			z-index: 999;
+			position: absolute;
+			display: none;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url('../img/game_rule_bg.png')center top no-repeat;
+			background-size: 100%;
+			background-color:rgba($color: #000, $alpha: 0.5);
+	
+			.game_rule{
+				position: relative;
+				width: 488/640*100%;
+				margin: 10% 0 0 12%;
+				.start{
+					position: absolute;
+					width: 342/488*100%;
+					top: 60%;
+					left: 50%;
+					transform: translateX(-50%);
+				}
+				.flip{
+					position: absolute;
+					width: 30%;
+					bottom: 2%;
+					right: 5%;
+				}
+			}
+		}//tips
+	
+		.match{
+			z-index: 999;
+			display: none;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			min-height: 100vh;
+			background-color: rgba($color: #000000, $alpha: 0.5);
+			>div{
+				width: 100;
+				display: none;
+			}
+		}
+	
+		.rule{
+			z-index: 999;
+			display: none;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			.rule_close{
+				position: absolute;
+				top: 0;
+				margin-top: 5%;
+				right: 5%;
+			}
+		}
+	
+		.winner{
+			z-index: 999;
+			display: none;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			.winner_close{
+				position: absolute;
+				top: 0;
+				margin-top: 5%;
+				right: 5%;
+			}
+		}
+
+		.inapp{
+			z-index: 1001;
+			display: none;
+			position: relative;
+			width: 100%;
+			height: 100vh;
+			img{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				height: 80vh;
+				width: auto;
+				transform: translate(-50%,-50%);
+			}
+		}
+	}//wrap;	
+}

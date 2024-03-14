@@ -1,0 +1,31 @@
+%!Adobe-FontList 1.19
+%Locale:0x404
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:CID
+FontName:NotoSansCJKtc-Bold
+FamilyName:Noto Sans CJK TC
+StyleName:Bold
+FullName:Noto Sans CJK TC Bold
+MenuName:Noto Sans CJK TC Bold
+StyleBits:0
+FamilyNameNative:Noto Sans CJK TC
+StyleNameNative:Bold
+FullNameNative:Noto Sans CJK TC Bold
+WritingScript:TraditionalChinese
+OutlineFileName:D:\CatchD - 禾意數位\20181210 vivo\Font\NotoSansCJKtc-Bold.otf
+DataFormat:sfntData
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:17002204
+FileModTime:1545024858
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Noto Sans CJK TC Bold
+NameArray:0,Win,1,Noto Sans CJK TC Bold
+NameArray:0,Win,16,Noto Sans CJK TC
+%EndFont
+
